@@ -5,10 +5,6 @@
  */
 
 import React, { Component } from 'react';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware, combineReduxers, compose} from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
 
 import {
   Platform,
@@ -36,7 +32,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+export default class WaffleShop extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
