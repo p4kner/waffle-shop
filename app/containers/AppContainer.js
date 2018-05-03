@@ -12,22 +12,17 @@ const {
 
 class AppContainer extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {recipeCount: 0};
-  }
-
-  incrementRecipeCount(){
-    this.setState({recipeCount: this.state.recipeCount + 1})
+  addRecipe(){
+    this.props.addRecipe();
   }
 
   render(){
     return(
       <View>
         <Text>
-          This is the AppContainer Component! Reciüpe cont: {this.state.recipeCount}
+          This is the AppContainer Component! Recipe cont: {this.props.recipeCount}
         </Text>
-        <TouchableHighlight onPress={() => {this.incrementRecipeCount()}}>
+        <TouchableHighlight onPress={() => {this.addRecipe()}}>
           <Text>
             Increase Count
           </Text>
@@ -42,4 +37,8 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators(ActionCreators, dispatch);
 }
 
-export default connect(() => {return {} }, mapDispatchToProps)(AppContainer);
+export default connect((state) => {
+  return {
+    recipeCount: state.recipeCount
+  }
+}, mapDispatchToProps)(AppContainer);
