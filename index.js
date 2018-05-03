@@ -1,3 +1,6 @@
+/**
+* Wrap AppContainer with store and run the AppContainer.
+*/
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 
@@ -8,7 +11,7 @@ import {createLogger} from 'redux-logger';
 
 import reducer from './app/reducers';
 
-import WaffleShop from './WaffleShop';
+import AppContainer from './app/containers/AppContainer';
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ });
 
@@ -29,7 +32,7 @@ const store = configureStore({});
 */
 const App = () => (
   <Provider store={store}>
-    <WaffleShop/>
+    <AppContainer/>
   </Provider>
 );
 
