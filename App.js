@@ -12,6 +12,17 @@ import {
   View
 } from 'react-native';
 
+/**
+* Constant with a cheeky greeting depending on the OS.
+*/
+const greeting = Platform.select({
+  ios: 'How\'s the old brand obsession\n' +
+    'going for ya iOS?',
+  android: 'Hi Android!\n' +
+    'Lookin\' good...\n' +
+    'as i knew you would!',
+});
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -25,7 +36,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          {greeting}
         </Text>
         <Text style={styles.instructions}>
           To get started, edit App.js
